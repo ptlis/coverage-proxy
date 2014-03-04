@@ -4,7 +4,7 @@
     "type": "project",
     "description": "A code coverage proxy, aggregating results of several builds into a single result.",
     "autoload": {
-        "psr-0": { "": "src/" }
+        "psr-4": { "ptlis\\CoverageProxyBundle\\": "src/" }
     },
     "require": {
         "php": ">=5.3.3",
