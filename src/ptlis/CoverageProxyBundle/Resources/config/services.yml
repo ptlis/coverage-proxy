@@ -1,0 +1,38 @@
+services:
+
+    form_errors.serializer:
+        class: ptlis\CoverageProxyBundle\Form\FormErrorSerializer
+
+# Controllers
+
+    # Test Upload
+    controller.frontend.test_upload:
+        class: ptlis\CoverageProxyBundle\Controller\TestUpload
+        arguments:
+          - @form.coverage_upload
+          - @templating
+
+    # Test Upload
+    controller.frontend.coverage_upload:
+        class: ptlis\CoverageProxyBundle\Controller\CoverageUpload
+        arguments:
+          - @form.coverage_upload
+          - @form_errors.serializer
+          - @jms_serializer
+
+
+# Form Types
+
+    # Coverage Upload type
+    type.coverage_upload:
+        class: ptlis\CoverageProxyBundle\Form\Type\CoverageUploadType
+        tags:
+          - { name: form.type, alias: coverage_upload }
+
+    # Coverage upload form
+    form.coverage_upload:
+        class: Symfony\Component\Form\FormInterface
+        factory_service: form.factory
+        factory_method: create
+        arguments:
+          - coverage_upload

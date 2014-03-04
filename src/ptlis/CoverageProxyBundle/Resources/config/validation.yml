@@ -1,0 +1,8 @@
+ptlis\CoverageProxyBundle\Entity\Form\CoverageUpload:
+    properties:
+        coverage:
+          - NotBlank: ~
+        job_number:
+          - NotBlank: ~
+        total_builds:
+          - NotBlank: ~

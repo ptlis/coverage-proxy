@@ -1,0 +1,10 @@
+
+test_upload:
+    path:       /
+    defaults:   { _controller: controller.frontend.test_upload:display }
+    methods:    [ GET ]
+
+upload_coverage:
+    path:       /upload
+    defaults:   { _controller: controller.frontend.coverage_upload:submit }
+    methods:    [ POST ]

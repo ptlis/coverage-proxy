@@ -1,0 +1,3 @@
+
+_ptlisCoverageProxyBundle:
+    resource: "@ptlisCoverageProxyBundle/Resources/config/routing.yml"
