@@ -4,11 +4,8 @@
         <title>Test File Upload</title>
     </head>
     <body>
-        <form action="{{ path('upload_coverage') }}" method="POST" novalidate>
+        <form action="{{ path('upload_coverage') }}" method="POST" enctype="multipart/form-data" novalidate>
             {{ form(form) }}
-<!--            <input type="file" name="coverage">
-
-            <input type="submit" value="Upload">-->
         </form>
     </body>
 </html>

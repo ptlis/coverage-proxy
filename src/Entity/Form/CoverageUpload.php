@@ -13,13 +13,15 @@
 
 namespace ptlis\CoverageProxyBundle\Entity\Form;
 
+use Symfony\Component\HttpFoundation\File\UploadedFile;
+
 /**
  * Entity used for processing coverage upload form.
  */
 class CoverageUpload
 {
     /**
-     * @var string
+     * @var
      */
     private $coverage;
 
@@ -35,11 +37,11 @@ class CoverageUpload
 
 
     /**
-     * @param string $coverage
+     * @param UploadedFile $coverage
      *
      * @return CoverageUpload
      */
-    public function setCoverage($coverage)
+    public function setCoverage(UploadedFile $coverage = null)
     {
         $this->coverage = $coverage;
 
@@ -48,7 +50,7 @@ class CoverageUpload
 
 
     /**
-     * @return string
+     * @return UploadedFile
      */
     public function getCoverage()
     {

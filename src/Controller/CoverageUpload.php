@@ -14,8 +14,7 @@
 namespace ptlis\CoverageProxyBundle\Controller;
 
 use JMS\Serializer\Serializer;
-use ptlis\CoverageProxyBundle\API\ResponsePayload;
-use ptlis\CoverageProxyBundle\Form\FormErrorSerializer;
+use ptlis\CoverageProxyBundle\API\ProcessCoverageUpload;
 use ptlis\CoverageProxyBundle\Http\ApiResponse;
 use Symfony\Component\Form\FormInterface;
 use Symfony\Component\HttpFoundation\Request;
@@ -31,9 +30,9 @@ class CoverageUpload
     private $form;
 
     /**
-     * @var FormErrorSerializer
+     * @var ProcessCoverageUpload
      */
-    private $errorSerializer;
+    private $processCoverageUpload;
 
     /**
      * JMS Serializer.
@@ -47,13 +46,13 @@ class CoverageUpload
      * Constructor.
      *
      * @param FormInterface $form
-     * @param FormErrorSerializer $errorSerializer
+     * @param ProcessCoverageUpload $processCoverageUpload
      * @param Serializer $serializer
      */
-    public function __construct(FormInterface $form, FormErrorSerializer $errorSerializer, Serializer $serializer)
+    public function __construct(FormInterface $form, ProcessCoverageUpload $processCoverageUpload, Serializer $serializer)
     {
         $this->form = $form;
-        $this->errorSerializer = $errorSerializer;
+        $this->processCoverageUpload = $processCoverageUpload;
         $this->serializer = $serializer;
     }
 
@@ -69,15 +68,9 @@ class CoverageUpload
     {
         $this->form->handleRequest($request);
 
-        $payload = new ResponsePayload();
+        $payload = $this->processCoverageUpload->process($this->form);
 
-        if (!$this->form->isValid()) {
-            $payload
-                ->setError(true)
-                ->setValidationErrors(
-                    $this->errorSerializer->toArray($this->form)
-                );
-        }
+        // TODO: Basic factory to convert payload into response.
 
         return new ApiResponse(
             $this->serializer->serialize($payload, 'json')

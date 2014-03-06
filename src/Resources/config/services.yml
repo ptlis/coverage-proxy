@@ -3,6 +3,11 @@ services:
     form_errors.serializer:
         class: ptlis\CoverageProxyBundle\Form\FormErrorSerializer
 
+    process_coverage_upload:
+        class: ptlis\CoverageProxyBundle\API\ProcessCoverageUpload
+        arguments:
+          - @form_errors.serializer
+
 # Controllers
 
     # Test Upload
@@ -17,7 +22,7 @@ services:
         class: ptlis\CoverageProxyBundle\Controller\CoverageUpload
         arguments:
           - @form.coverage_upload
-          - @form_errors.serializer
+          - @process_coverage_upload
           - @jms_serializer
 
 
