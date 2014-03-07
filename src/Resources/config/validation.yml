@@ -2,6 +2,7 @@ ptlis\CoverageProxyBundle\Entity\Form\CoverageUpload:
     properties:
         coverage:
           - NotBlank: ~
+          - ptlis\CoverageProxyBundle\Validator\Constraints\CoverageFile: ~
         job_number:
           - NotBlank: ~
         total_builds:

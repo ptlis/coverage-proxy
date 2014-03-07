@@ -41,3 +41,11 @@ services:
         factory_method: create
         arguments:
           - coverage_upload
+
+
+# Custom Validators
+
+    validator.coverage_file:
+        class: ptlis\CoverageProxyBundle\Validator\Constraints\CoverageFile
+        tags:
+            - { name: validator.constraint_validator, alias: coverage_file }
