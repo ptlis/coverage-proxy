@@ -4,7 +4,10 @@
     "type": "project",
     "description": "A code coverage proxy, aggregating results of several builds into a single result.",
     "autoload": {
-        "psr-4": { "ptlis\\CoverageProxyBundle\\": "src/" }
+        "psr-4": {
+            "ptlis\\CoverageProxyBundle\\": "src/",
+            "ptlis\\CoverageProxyBundle\\Test\\": "tests/"
+        }
     },
     "require": {
         "php": ">=5.3.3",
@@ -21,6 +24,14 @@
         "sensio/generator-bundle": "~2.3",
         "incenteev/composer-parameter-handler": "~2.0",
         "phpunit/php-code-coverage": "2.0.*@dev"
+    },
+    "require-dev": {
+        "pdepend/pdepend":                      "1.1.*",
+        "phploc/phploc":                        "2.0.*",
+        "phpmd/phpmd":                          "@dev",
+        "phpunit/phpunit":                      "3.7.*",
+        "sebastian/phpcpd":                     "2.0.*",
+        "squizlabs/php_codesniffer":            "1.5.*"
     },
     "scripts": {
         "post-install-cmd": [
