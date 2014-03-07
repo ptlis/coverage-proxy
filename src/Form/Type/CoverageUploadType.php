@@ -58,10 +58,10 @@ class CoverageUploadType extends AbstractType
     public function setDefaultOptions(OptionsResolverInterface $resolver)
     {
         parent::setDefaultOptions($resolver);
-        $resolver->setDefaults([
+        $resolver->setDefaults(array(
             'data_class' => 'ptlis\CoverageProxyBundle\Entity\Form\CoverageUpload',
             'csrf_protection' => false
-        ]);
+        ));
     }
 
 
