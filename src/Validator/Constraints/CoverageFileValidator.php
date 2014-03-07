@@ -24,6 +24,12 @@ use Symfony\Component\Validator\ConstraintValidator;
 class CoverageFileValidator extends ConstraintValidator
 {
     /**
+     * @var bool
+     */
+    private $error = false;
+
+
+    /**
      * Validation function to ensure that the coverage file is valid.
      *
      * @param UploadedFile  $coverageFile
@@ -31,66 +37,24 @@ class CoverageFileValidator extends ConstraintValidator
      */
     public function validate($coverageFile, Constraint $constraint)
     {
-        $error = false;
-
-        // Ensure valid type
-        if (!$error) {
-            $fInfo = finfo_open(FILEINFO_MIME_TYPE);
-            $mime = finfo_file($fInfo, $coverageFile->getFileInfo()->getPathname());
-            if (!$error && $mime !== 'text/x-php') {
-                $this->emitError($constraint);
-                $error = true;
-            }
-        }
-
-        // Lint the file
-        if (!$error) {
-            $result = exec('php -l ' . escapeshellarg($coverageFile->getFileInfo()->getPathname()));
-
-            if (preg_match('/^Errors parsing/i', $result, $match)) {
-                $this->context->addViolation('bad times! (lint)');
-                $error = true;
-            }
-        }
-
-        // Files that emit output (echo, others?)
-        // TODO: Anything else to make safe??
+        // TODO: Files that emit output (echo, others?)
         // TODO: Closing php?
+        // TODO: Class definitions?
+        // TODO: Anything else to make safe??
 
-        if (!$error) {
-            $fileData = file_get_contents($coverageFile->getFileInfo()->getPathname());
-
-            // Validate function calls
-            if (!$error && preg_match_all('/\s*(.*?(\-\>)?)\s*([a-zA-Z_\x7f-\xff][a-zA-Z0-9_\x7f-\xff]*)\s*\(.*\)\s*;/', $fileData, $matchList)) {
-                foreach ($matchList[3] as $key => $match) {
-                    if ($match !== 'filter' || $matchList[2][$key] !== '->') {
-                        $this->context->addViolation('bad times! (func)');
-                        $error = true;
-                    }
-                }
-            }
-
-            // Validate 'new' uses
-            if (!$error && preg_match_all('/new\s*\$?([a-zA-Z_\x7f-\xff][a-zA-Z0-9_\x7f-\xff]*)/', $fileData, $matchList)) {
-                foreach ($matchList[1] as $match) {
-                    if ($match !== 'PHP_CodeCoverage') {
-                        $this->context->addViolation('bad times (class)!');
-                        $error = true;
-                    }
-                }
-            }
-        }
-
-
+        $this
+            ->validFileType($coverageFile, $constraint)
+            ->lintFile($coverageFile, $constraint)
+            ->validateFunctionCalls($coverageFile, $constraint)
+            ->validateClassInstances($coverageFile, $constraint);
 
         // Attempt to load the file
-        if (!$error) {
+        if (!$this->error) {
             ob_start();
             $coverage = include($coverageFile->getFileInfo()->getPathname());
             ob_end_clean();
-            if (!$error && !($coverage instanceof PHP_CodeCoverage)) {
+            if (!($coverage instanceof PHP_CodeCoverage)) {
                 $this->emitError($constraint);
-                $error = true;
             }
         }
     }
@@ -101,6 +65,112 @@ class CoverageFileValidator extends ConstraintValidator
      */
     public function emitError(Constraint $constraint)
     {
+        $this->error = true;
         $this->context->addViolation($constraint->message);
+    }
+
+
+    /**
+     * Ensure that the upload file is a PHP file.
+     *
+     * @param UploadedFile $coverageFile
+     * @param Constraint   $constraint
+     *
+     * @return CoverageFileValidator
+     */
+    private function validFileType(UploadedFile $coverageFile, Constraint $constraint)
+    {
+        if (!$this->error) {
+            $fInfo = finfo_open(FILEINFO_MIME_TYPE);
+            $mime = finfo_file($fInfo, $coverageFile->getFileInfo()->getPathname());
+
+            if ($mime !== 'text/x-php') {
+                $this->emitError($constraint);
+            }
+        }
+
+        return $this;
+    }
+
+
+    /**
+     * Lint the provided file & ensure there are no errors.
+     *
+     * @param UploadedFile $coverageFile
+     * @param Constraint   $constraint
+     *
+     * @return CoverageFileValidator
+     */
+    private function lintFile(UploadedFile $coverageFile, Constraint $constraint)
+    {
+        if (!$this->error) {
+            $result = exec('php -l ' . escapeshellarg($coverageFile->getFileInfo()->getPathname()));
+
+            if (preg_match('/^Errors parsing/i', $result, $match)) {
+                $this->emitError($constraint);
+            }
+        }
+
+        return $this;
+    }
+
+
+    /**
+     * Restrict allowed function calls.
+     *
+     * @param UploadedFile $coverageFile
+     * @param Constraint   $constraint
+     *
+     * @return CoverageFileValidator
+     */
+    private function validateFunctionCalls(UploadedFile $coverageFile, Constraint $constraint)
+    {
+        if (!$this->error) {
+            $fileData = file_get_contents($coverageFile->getFileInfo()->getPathname());
+            $regex = '/(.*?(\-\>)?)\s*([a-zA-Z_\x7f-\xff][a-zA-Z0-9_\x7f-\xff]*)\s*\(.*\)\s*;/';
+
+            if (preg_match_all($regex, $fileData, $matchList)) {
+
+                foreach ($matchList[3] as $key => $match) {
+
+                    if ($match !== 'filter' || $matchList[2][$key] !== '->') {
+                        $this->emitError($constraint);
+                        break;
+                    }
+                }
+            }
+        }
+
+        return $this;
+    }
+
+
+    /**
+     * Restrict allowed class instances.
+     *
+     * @param UploadedFile $coverageFile
+     * @param Constraint   $constraint
+     *
+     * @return CoverageFileValidator
+     */
+    private function validateClassInstances(UploadedFile $coverageFile, Constraint $constraint)
+    {
+        if (!$this->error) {
+            $fileData = file_get_contents($coverageFile->getFileInfo()->getPathname());
+            $regex = '/new\s*(\$?[a-zA-Z_\x7f-\xff][a-zA-Z0-9_\x7f-\xff]*)/';
+
+            if (preg_match_all($regex, $fileData, $matchList)) {
+
+                foreach ($matchList[1] as $match) {
+
+                    if ($match !== 'PHP_CodeCoverage') {
+                        $this->emitError($constraint);
+                        break;
+                    }
+                }
+            }
+        }
+
+        return $this;
     }
 }
