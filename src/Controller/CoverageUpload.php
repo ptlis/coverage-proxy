@@ -70,10 +70,13 @@ class CoverageUpload
 
         $payload = $this->processCoverageUpload->process($this->form);
 
-        // TODO: Basic factory to convert payload into response.
-
-        return new ApiResponse(
+        $response = new ApiResponse(
             $this->serializer->serialize($payload, 'json')
         );
+        $response->setStatusCode(ApiResponse::HTTP_UNSUPPORTED_MEDIA_TYPE);
+
+        // TODO: Basic factory to convert payload into response.
+
+        return $response;
     }
 }

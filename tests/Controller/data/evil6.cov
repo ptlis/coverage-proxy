@@ -1,0 +1,10 @@
+<?php
+
+
+new PHP_CodeCoverage();
+
+new
+ foo
+(
+)
+;
