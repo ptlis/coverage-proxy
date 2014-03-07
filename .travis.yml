@@ -7,6 +7,10 @@ php:
   - 5.5
   - 5.6
 
+matrix:
+  allow_failures:
+    - hhvm
+
 install:
     # Install deps
     - composer install --no-dev
