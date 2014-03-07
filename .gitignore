@@ -5,7 +5,13 @@
 /app/logs/*
 !app/cache/.gitkeep
 !app/logs/.gitkeep
-/build/
+/build/api/
+/build/code-browser/
+/build/coverage/
+/build/logs/
+/build/pdepend/
+/build/phpdox/
+/bin/
 /vendor/
 /bin/
 /composer.phar
