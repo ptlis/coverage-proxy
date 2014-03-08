@@ -104,7 +104,7 @@ class CoverageFileValidator extends ConstraintValidator
     private function lintFile(UploadedFile $coverageFile, Constraint $constraint)
     {
         if (!$this->error) {
-            $result = exec('php -l ' . escapeshellarg($coverageFile->getFileInfo()->getPathname()));
+            $result = exec('php -l ' . escapeshellarg($coverageFile->getFileInfo()->getPathname()) . ' 2> /dev/null');
 
             if (preg_match('/^Errors parsing/i', $result, $match)) {
                 $this->emitError($constraint);

@@ -11,13 +11,6 @@ services:
 # Controllers
 
     # Test Upload
-    controller.frontend.test_upload:
-        class: ptlis\CoverageProxyBundle\Controller\TestUpload
-        arguments:
-          - @form.coverage_upload
-          - @templating
-
-    # Test Upload
     controller.frontend.coverage_upload:
         class: ptlis\CoverageProxyBundle\Controller\CoverageUpload
         arguments:

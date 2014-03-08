@@ -29,13 +29,4 @@ class ApiResponse extends Response
 
         $this->headers->set('Content-Type', 'application/json');
     }
-
-
-    /**
-     * {@inheritDoc}
-     */
-    public static function create($data = null, $status = 200, $headers = array())
-    {
-        return new static($data, $status, $headers);
-    }
 }

@@ -52,6 +52,7 @@ class ProcessCoverageUpload
     {
         // Push validation errors into payload
         if (!$form->isValid()) {
+
             $payload = new ResponsePayload();
             $payload
                 ->setError(true)
@@ -71,7 +72,6 @@ class ProcessCoverageUpload
     private function processValid(CoverageUpload $coverageUpload)
     {
         $payload = new ResponsePayload();
-        var_dump($coverageUpload->getCoverage());die();
 
         return $payload;
     }

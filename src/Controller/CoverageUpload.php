@@ -73,7 +73,10 @@ class CoverageUpload
         $response = new ApiResponse(
             $this->serializer->serialize($payload, 'json')
         );
-        $response->setStatusCode(ApiResponse::HTTP_UNSUPPORTED_MEDIA_TYPE);
+
+        if ($payload->getError()) {
+            $response->setStatusCode(ApiResponse::HTTP_UNSUPPORTED_MEDIA_TYPE);
+        }
 
         // TODO: Basic factory to convert payload into response.
 

@@ -22,27 +22,49 @@ use Symfony\Component\HttpFoundation\Response;
  */
 class CoverageUploadTest extends WebTestCase
 {
-    public function testEvilPhp1()
+    private function getErrorMessage()
+    {
+        $message = array(
+            'error' => true,
+            'error_message' => '',
+            'validation_errors' => array()
+        );
+
+        return json_encode($message);
+    }
+
+
+    public function testUploadValid()
     {
         $client = static::createClient();
 
         $client->request(
             'POST',
             $client->getContainer()->get('router')->generate('upload_coverage'),
-            array(),
             array(
-                new UploadedFile(realpath(__DIR__ . '/data/evil1.cov'), 'evil1.cov')
+                'coverage_upload' => array(
+                    'job_number' => 1,
+                    'total_builds' => 1
+                )
+            ),
+            array(
+                'coverage_upload' => array(
+                    'coverage' => new UploadedFile(realpath(__DIR__ . '/../data/valid.cov'), 'valid.cov')
+                )
+            ),
+            array(
+                'CONTENT_TYPE' => 'multipart/form-data'
             )
         );
 
         $this->assertEquals(
-            Response::HTTP_UNSUPPORTED_MEDIA_TYPE,
+            Response::HTTP_OK,
             $client->getResponse()->getStatusCode()
         );
     }
 
 
-    public function testEvilPhp2()
+    public function testUploadInvalidOmitValues()
     {
         $client = static::createClient();
 
@@ -50,28 +72,9 @@ class CoverageUploadTest extends WebTestCase
             'POST',
             $client->getContainer()->get('router')->generate('upload_coverage'),
             array(),
-            array(
-                new UploadedFile(realpath(__DIR__ . '/data/evil2.cov'), 'evil2.cov')
-            )
-        );
-
-        $this->assertEquals(
-            Response::HTTP_UNSUPPORTED_MEDIA_TYPE,
-            $client->getResponse()->getStatusCode()
-        );
-    }
-
-
-    public function testEvilPhp3()
-    {
-        $client = static::createClient();
-
-        $client->request(
-            'POST',
-            $client->getContainer()->get('router')->generate('upload_coverage'),
             array(),
             array(
-                new UploadedFile(realpath(__DIR__ . '/data/evil3.cov'), 'evil3.cov')
+                'CONTENT_TYPE' => 'multipart/form-data'
             )
         );
 
@@ -79,85 +82,10 @@ class CoverageUploadTest extends WebTestCase
             Response::HTTP_UNSUPPORTED_MEDIA_TYPE,
             $client->getResponse()->getStatusCode()
         );
-    }
-
-
-    public function testEvilPhp4()
-    {
-        $client = static::createClient();
-
-        $client->request(
-            'POST',
-            $client->getContainer()->get('router')->generate('upload_coverage'),
-            array(),
-            array(
-                new UploadedFile(realpath(__DIR__ . '/data/evil4.cov'), 'evil4.cov')
-            )
-        );
 
         $this->assertEquals(
-            Response::HTTP_UNSUPPORTED_MEDIA_TYPE,
-            $client->getResponse()->getStatusCode()
-        );
-    }
-
-
-    public function testEvilPhp5()
-    {
-        $client = static::createClient();
-
-        $client->request(
-            'POST',
-            $client->getContainer()->get('router')->generate('upload_coverage'),
-            array(),
-            array(
-                new UploadedFile(realpath(__DIR__ . '/data/evil5.cov'), 'evil5.cov')
-            )
-        );
-
-        $this->assertEquals(
-            Response::HTTP_UNSUPPORTED_MEDIA_TYPE,
-            $client->getResponse()->getStatusCode()
-        );
-    }
-
-
-    public function testEvilPhp6()
-    {
-        $client = static::createClient();
-
-        $client->request(
-            'POST',
-            $client->getContainer()->get('router')->generate('upload_coverage'),
-            array(),
-            array(
-                new UploadedFile(realpath(__DIR__ . '/data/evil6.cov'), 'evil6.cov')
-            )
-        );
-
-        $this->assertEquals(
-            Response::HTTP_UNSUPPORTED_MEDIA_TYPE,
-            $client->getResponse()->getStatusCode()
-        );
-    }
-
-
-    public function testEvilPhp7()
-    {
-        $client = static::createClient();
-
-        $client->request(
-            'POST',
-            $client->getContainer()->get('router')->generate('upload_coverage'),
-            array(),
-            array(
-                new UploadedFile(realpath(__DIR__ . '/data/evil7.cov'), 'evil7.cov')
-            )
-        );
-
-        $this->assertEquals(
-            Response::HTTP_UNSUPPORTED_MEDIA_TYPE,
-            $client->getResponse()->getStatusCode()
+            $this->getErrorMessage(),
+            $client->getResponse()->getContent()
         );
     }
 }

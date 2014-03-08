@@ -1,0 +1,475 @@
+<?php
+$coverage = new PHP_CodeCoverage;
+$coverage->setData(array (
+  '/home/brian/Desktop/dev/ConNegBundle/src/ptlisConNegBundle.php' => 
+  array (
+    30 => 
+    array (
+      0 => 'ptlis\\ConNegBundle\\Test\\CharsetAllTest::testCharsetAllOne',
+    ),
+    33 => 
+    array (
+      0 => 'ptlis\\ConNegBundle\\Test\\CharsetAllTest::testCharsetAllOne',
+    ),
+    34 => 
+    array (
+      0 => 'ptlis\\ConNegBundle\\Test\\CharsetAllTest::testCharsetAllOne',
+    ),
+  ),
+  '/home/brian/Desktop/dev/ConNegBundle/src/Service/LegacyTypeFactory.php' => 
+  array (
+    47 => 
+    array (
+      0 => 'ptlis\\ConNegBundle\\Test\\CharsetAllTest::testCharsetAllOne',
+      1 => 'ptlis\\ConNegBundle\\Test\\CharsetAllTest::testCharsetAllTwo',
+      2 => 'ptlis\\ConNegBundle\\Test\\CharsetAllTest::testCharsetAllThree',
+      3 => 'ptlis\\ConNegBundle\\Test\\CharsetAllTest::testCharsetAllFour',
+      4 => 'ptlis\\ConNegBundle\\Test\\CharsetBestTest::testCharsetBestOne',
+      5 => 'ptlis\\ConNegBundle\\Test\\CharsetBestTest::testCharsetBestTwo',
+      6 => 'ptlis\\ConNegBundle\\Test\\CharsetBestTest::testCharsetBestThree',
+      7 => 'ptlis\\ConNegBundle\\Test\\CharsetBestTest::testCharsetBestFour',
+      8 => 'ptlis\\ConNegBundle\\Test\\EncodingAllTest::testEncodingAllOne',
+      9 => 'ptlis\\ConNegBundle\\Test\\EncodingAllTest::testEncodingAllTwo',
+      10 => 'ptlis\\ConNegBundle\\Test\\EncodingAllTest::testEncodingAllThree',
+      11 => 'ptlis\\ConNegBundle\\Test\\EncodingAllTest::testEncodingAllFour',
+      12 => 'ptlis\\ConNegBundle\\Test\\EncodingBestTest::testEncodingBestOne',
+      13 => 'ptlis\\ConNegBundle\\Test\\EncodingBestTest::testEncodingBestTwo',
+      14 => 'ptlis\\ConNegBundle\\Test\\EncodingBestTest::testEncodingBestThree',
+      15 => 'ptlis\\ConNegBundle\\Test\\EncodingBestTest::testEncodingBestFour',
+      16 => 'ptlis\\ConNegBundle\\Test\\LanguageAllTest::testLanguageAllOne',
+      17 => 'ptlis\\ConNegBundle\\Test\\LanguageAllTest::testLanguageAllTwo',
+      18 => 'ptlis\\ConNegBundle\\Test\\LanguageAllTest::testLanguageAllThree',
+      19 => 'ptlis\\ConNegBundle\\Test\\LanguageAllTest::testLanguageAllFour',
+      20 => 'ptlis\\ConNegBundle\\Test\\LanguageBestTest::testLanguageBestOne',
+      21 => 'ptlis\\ConNegBundle\\Test\\LanguageBestTest::testLanguageBestTwo',
+      22 => 'ptlis\\ConNegBundle\\Test\\LanguageBestTest::testLanguageBestThree',
+      23 => 'ptlis\\ConNegBundle\\Test\\LanguageBestTest::testLanguageBestFour',
+      24 => 'ptlis\\ConNegBundle\\Test\\MimeAllTest::testMimeAllOne',
+      25 => 'ptlis\\ConNegBundle\\Test\\MimeAllTest::testMimeAllTwo',
+      26 => 'ptlis\\ConNegBundle\\Test\\MimeAllTest::testMimeAllThree',
+      27 => 'ptlis\\ConNegBundle\\Test\\MimeAllTest::testMimeAllFour',
+      28 => 'ptlis\\ConNegBundle\\Test\\MimeBestTest::testMimeBestOne',
+      29 => 'ptlis\\ConNegBundle\\Test\\MimeBestTest::testMimeBestTwo',
+      30 => 'ptlis\\ConNegBundle\\Test\\MimeBestTest::testMimeBestThree',
+      31 => 'ptlis\\ConNegBundle\\Test\\MimeBestTest::testMimeBestFour',
+    ),
+    48 => 
+    array (
+      0 => 'ptlis\\ConNegBundle\\Test\\CharsetAllTest::testCharsetAllOne',
+      1 => 'ptlis\\ConNegBundle\\Test\\CharsetAllTest::testCharsetAllTwo',
+      2 => 'ptlis\\ConNegBundle\\Test\\CharsetAllTest::testCharsetAllThree',
+      3 => 'ptlis\\ConNegBundle\\Test\\CharsetAllTest::testCharsetAllFour',
+      4 => 'ptlis\\ConNegBundle\\Test\\CharsetBestTest::testCharsetBestOne',
+      5 => 'ptlis\\ConNegBundle\\Test\\CharsetBestTest::testCharsetBestTwo',
+      6 => 'ptlis\\ConNegBundle\\Test\\CharsetBestTest::testCharsetBestThree',
+      7 => 'ptlis\\ConNegBundle\\Test\\CharsetBestTest::testCharsetBestFour',
+      8 => 'ptlis\\ConNegBundle\\Test\\EncodingAllTest::testEncodingAllOne',
+      9 => 'ptlis\\ConNegBundle\\Test\\EncodingAllTest::testEncodingAllTwo',
+      10 => 'ptlis\\ConNegBundle\\Test\\EncodingAllTest::testEncodingAllThree',
+      11 => 'ptlis\\ConNegBundle\\Test\\EncodingAllTest::testEncodingAllFour',
+      12 => 'ptlis\\ConNegBundle\\Test\\EncodingBestTest::testEncodingBestOne',
+      13 => 'ptlis\\ConNegBundle\\Test\\EncodingBestTest::testEncodingBestTwo',
+      14 => 'ptlis\\ConNegBundle\\Test\\EncodingBestTest::testEncodingBestThree',
+      15 => 'ptlis\\ConNegBundle\\Test\\EncodingBestTest::testEncodingBestFour',
+      16 => 'ptlis\\ConNegBundle\\Test\\LanguageAllTest::testLanguageAllOne',
+      17 => 'ptlis\\ConNegBundle\\Test\\LanguageAllTest::testLanguageAllTwo',
+      18 => 'ptlis\\ConNegBundle\\Test\\LanguageAllTest::testLanguageAllThree',
+      19 => 'ptlis\\ConNegBundle\\Test\\LanguageAllTest::testLanguageAllFour',
+      20 => 'ptlis\\ConNegBundle\\Test\\LanguageBestTest::testLanguageBestOne',
+      21 => 'ptlis\\ConNegBundle\\Test\\LanguageBestTest::testLanguageBestTwo',
+      22 => 'ptlis\\ConNegBundle\\Test\\LanguageBestTest::testLanguageBestThree',
+      23 => 'ptlis\\ConNegBundle\\Test\\LanguageBestTest::testLanguageBestFour',
+      24 => 'ptlis\\ConNegBundle\\Test\\MimeAllTest::testMimeAllOne',
+      25 => 'ptlis\\ConNegBundle\\Test\\MimeAllTest::testMimeAllTwo',
+      26 => 'ptlis\\ConNegBundle\\Test\\MimeAllTest::testMimeAllThree',
+      27 => 'ptlis\\ConNegBundle\\Test\\MimeAllTest::testMimeAllFour',
+      28 => 'ptlis\\ConNegBundle\\Test\\MimeBestTest::testMimeBestOne',
+      29 => 'ptlis\\ConNegBundle\\Test\\MimeBestTest::testMimeBestTwo',
+      30 => 'ptlis\\ConNegBundle\\Test\\MimeBestTest::testMimeBestThree',
+      31 => 'ptlis\\ConNegBundle\\Test\\MimeBestTest::testMimeBestFour',
+    ),
+    49 => 
+    array (
+      0 => 'ptlis\\ConNegBundle\\Test\\CharsetAllTest::testCharsetAllOne',
+      1 => 'ptlis\\ConNegBundle\\Test\\CharsetAllTest::testCharsetAllTwo',
+      2 => 'ptlis\\ConNegBundle\\Test\\CharsetAllTest::testCharsetAllThree',
+      3 => 'ptlis\\ConNegBundle\\Test\\CharsetAllTest::testCharsetAllFour',
+      4 => 'ptlis\\ConNegBundle\\Test\\CharsetBestTest::testCharsetBestOne',
+      5 => 'ptlis\\ConNegBundle\\Test\\CharsetBestTest::testCharsetBestTwo',
+      6 => 'ptlis\\ConNegBundle\\Test\\CharsetBestTest::testCharsetBestThree',
+      7 => 'ptlis\\ConNegBundle\\Test\\CharsetBestTest::testCharsetBestFour',
+      8 => 'ptlis\\ConNegBundle\\Test\\EncodingAllTest::testEncodingAllOne',
+      9 => 'ptlis\\ConNegBundle\\Test\\EncodingAllTest::testEncodingAllTwo',
+      10 => 'ptlis\\ConNegBundle\\Test\\EncodingAllTest::testEncodingAllThree',
+      11 => 'ptlis\\ConNegBundle\\Test\\EncodingAllTest::testEncodingAllFour',
+      12 => 'ptlis\\ConNegBundle\\Test\\EncodingBestTest::testEncodingBestOne',
+      13 => 'ptlis\\ConNegBundle\\Test\\EncodingBestTest::testEncodingBestTwo',
+      14 => 'ptlis\\ConNegBundle\\Test\\EncodingBestTest::testEncodingBestThree',
+      15 => 'ptlis\\ConNegBundle\\Test\\EncodingBestTest::testEncodingBestFour',
+      16 => 'ptlis\\ConNegBundle\\Test\\LanguageAllTest::testLanguageAllOne',
+      17 => 'ptlis\\ConNegBundle\\Test\\LanguageAllTest::testLanguageAllTwo',
+      18 => 'ptlis\\ConNegBundle\\Test\\LanguageAllTest::testLanguageAllThree',
+      19 => 'ptlis\\ConNegBundle\\Test\\LanguageAllTest::testLanguageAllFour',
+      20 => 'ptlis\\ConNegBundle\\Test\\LanguageBestTest::testLanguageBestOne',
+      21 => 'ptlis\\ConNegBundle\\Test\\LanguageBestTest::testLanguageBestTwo',
+      22 => 'ptlis\\ConNegBundle\\Test\\LanguageBestTest::testLanguageBestThree',
+      23 => 'ptlis\\ConNegBundle\\Test\\LanguageBestTest::testLanguageBestFour',
+      24 => 'ptlis\\ConNegBundle\\Test\\MimeAllTest::testMimeAllOne',
+      25 => 'ptlis\\ConNegBundle\\Test\\MimeAllTest::testMimeAllTwo',
+      26 => 'ptlis\\ConNegBundle\\Test\\MimeAllTest::testMimeAllThree',
+      27 => 'ptlis\\ConNegBundle\\Test\\MimeAllTest::testMimeAllFour',
+      28 => 'ptlis\\ConNegBundle\\Test\\MimeBestTest::testMimeBestOne',
+      29 => 'ptlis\\ConNegBundle\\Test\\MimeBestTest::testMimeBestTwo',
+      30 => 'ptlis\\ConNegBundle\\Test\\MimeBestTest::testMimeBestThree',
+      31 => 'ptlis\\ConNegBundle\\Test\\MimeBestTest::testMimeBestFour',
+    ),
+    61 => 
+    array (
+      0 => 'ptlis\\ConNegBundle\\Test\\CharsetAllTest::testCharsetAllOne',
+      1 => 'ptlis\\ConNegBundle\\Test\\CharsetAllTest::testCharsetAllTwo',
+      2 => 'ptlis\\ConNegBundle\\Test\\CharsetAllTest::testCharsetAllThree',
+      3 => 'ptlis\\ConNegBundle\\Test\\CharsetAllTest::testCharsetAllFour',
+    ),
+    63 => 
+    array (
+      0 => 'ptlis\\ConNegBundle\\Test\\CharsetAllTest::testCharsetAllOne',
+      1 => 'ptlis\\ConNegBundle\\Test\\CharsetAllTest::testCharsetAllTwo',
+      2 => 'ptlis\\ConNegBundle\\Test\\CharsetAllTest::testCharsetAllThree',
+      3 => 'ptlis\\ConNegBundle\\Test\\CharsetAllTest::testCharsetAllFour',
+    ),
+    64 => NULL,
+    76 => 
+    array (
+      0 => 'ptlis\\ConNegBundle\\Test\\CharsetBestTest::testCharsetBestOne',
+      1 => 'ptlis\\ConNegBundle\\Test\\CharsetBestTest::testCharsetBestTwo',
+      2 => 'ptlis\\ConNegBundle\\Test\\CharsetBestTest::testCharsetBestThree',
+      3 => 'ptlis\\ConNegBundle\\Test\\CharsetBestTest::testCharsetBestFour',
+    ),
+    78 => 
+    array (
+      0 => 'ptlis\\ConNegBundle\\Test\\CharsetBestTest::testCharsetBestOne',
+      1 => 'ptlis\\ConNegBundle\\Test\\CharsetBestTest::testCharsetBestTwo',
+      2 => 'ptlis\\ConNegBundle\\Test\\CharsetBestTest::testCharsetBestThree',
+      3 => 'ptlis\\ConNegBundle\\Test\\CharsetBestTest::testCharsetBestFour',
+    ),
+    79 => NULL,
+    91 => 
+    array (
+      0 => 'ptlis\\ConNegBundle\\Test\\EncodingAllTest::testEncodingAllOne',
+      1 => 'ptlis\\ConNegBundle\\Test\\EncodingAllTest::testEncodingAllTwo',
+      2 => 'ptlis\\ConNegBundle\\Test\\EncodingAllTest::testEncodingAllThree',
+      3 => 'ptlis\\ConNegBundle\\Test\\EncodingAllTest::testEncodingAllFour',
+    ),
+    93 => 
+    array (
+      0 => 'ptlis\\ConNegBundle\\Test\\EncodingAllTest::testEncodingAllOne',
+      1 => 'ptlis\\ConNegBundle\\Test\\EncodingAllTest::testEncodingAllTwo',
+      2 => 'ptlis\\ConNegBundle\\Test\\EncodingAllTest::testEncodingAllThree',
+      3 => 'ptlis\\ConNegBundle\\Test\\EncodingAllTest::testEncodingAllFour',
+    ),
+    94 => NULL,
+    106 => 
+    array (
+      0 => 'ptlis\\ConNegBundle\\Test\\EncodingBestTest::testEncodingBestOne',
+      1 => 'ptlis\\ConNegBundle\\Test\\EncodingBestTest::testEncodingBestTwo',
+      2 => 'ptlis\\ConNegBundle\\Test\\EncodingBestTest::testEncodingBestThree',
+      3 => 'ptlis\\ConNegBundle\\Test\\EncodingBestTest::testEncodingBestFour',
+    ),
+    108 => 
+    array (
+      0 => 'ptlis\\ConNegBundle\\Test\\EncodingBestTest::testEncodingBestOne',
+      1 => 'ptlis\\ConNegBundle\\Test\\EncodingBestTest::testEncodingBestTwo',
+      2 => 'ptlis\\ConNegBundle\\Test\\EncodingBestTest::testEncodingBestThree',
+      3 => 'ptlis\\ConNegBundle\\Test\\EncodingBestTest::testEncodingBestFour',
+    ),
+    109 => NULL,
+    121 => 
+    array (
+      0 => 'ptlis\\ConNegBundle\\Test\\LanguageAllTest::testLanguageAllOne',
+      1 => 'ptlis\\ConNegBundle\\Test\\LanguageAllTest::testLanguageAllTwo',
+      2 => 'ptlis\\ConNegBundle\\Test\\LanguageAllTest::testLanguageAllThree',
+      3 => 'ptlis\\ConNegBundle\\Test\\LanguageAllTest::testLanguageAllFour',
+    ),
+    123 => 
+    array (
+      0 => 'ptlis\\ConNegBundle\\Test\\LanguageAllTest::testLanguageAllOne',
+      1 => 'ptlis\\ConNegBundle\\Test\\LanguageAllTest::testLanguageAllTwo',
+      2 => 'ptlis\\ConNegBundle\\Test\\LanguageAllTest::testLanguageAllThree',
+      3 => 'ptlis\\ConNegBundle\\Test\\LanguageAllTest::testLanguageAllFour',
+    ),
+    124 => NULL,
+    136 => 
+    array (
+      0 => 'ptlis\\ConNegBundle\\Test\\LanguageBestTest::testLanguageBestOne',
+      1 => 'ptlis\\ConNegBundle\\Test\\LanguageBestTest::testLanguageBestTwo',
+      2 => 'ptlis\\ConNegBundle\\Test\\LanguageBestTest::testLanguageBestThree',
+      3 => 'ptlis\\ConNegBundle\\Test\\LanguageBestTest::testLanguageBestFour',
+    ),
+    138 => 
+    array (
+      0 => 'ptlis\\ConNegBundle\\Test\\LanguageBestTest::testLanguageBestOne',
+      1 => 'ptlis\\ConNegBundle\\Test\\LanguageBestTest::testLanguageBestTwo',
+      2 => 'ptlis\\ConNegBundle\\Test\\LanguageBestTest::testLanguageBestThree',
+      3 => 'ptlis\\ConNegBundle\\Test\\LanguageBestTest::testLanguageBestFour',
+    ),
+    139 => NULL,
+    151 => 
+    array (
+      0 => 'ptlis\\ConNegBundle\\Test\\MimeAllTest::testMimeAllOne',
+      1 => 'ptlis\\ConNegBundle\\Test\\MimeAllTest::testMimeAllTwo',
+      2 => 'ptlis\\ConNegBundle\\Test\\MimeAllTest::testMimeAllThree',
+      3 => 'ptlis\\ConNegBundle\\Test\\MimeAllTest::testMimeAllFour',
+    ),
+    153 => 
+    array (
+      0 => 'ptlis\\ConNegBundle\\Test\\MimeAllTest::testMimeAllOne',
+      1 => 'ptlis\\ConNegBundle\\Test\\MimeAllTest::testMimeAllTwo',
+      2 => 'ptlis\\ConNegBundle\\Test\\MimeAllTest::testMimeAllThree',
+      3 => 'ptlis\\ConNegBundle\\Test\\MimeAllTest::testMimeAllFour',
+    ),
+    154 => NULL,
+    166 => 
+    array (
+      0 => 'ptlis\\ConNegBundle\\Test\\MimeBestTest::testMimeBestOne',
+      1 => 'ptlis\\ConNegBundle\\Test\\MimeBestTest::testMimeBestTwo',
+      2 => 'ptlis\\ConNegBundle\\Test\\MimeBestTest::testMimeBestThree',
+      3 => 'ptlis\\ConNegBundle\\Test\\MimeBestTest::testMimeBestFour',
+    ),
+    168 => 
+    array (
+      0 => 'ptlis\\ConNegBundle\\Test\\MimeBestTest::testMimeBestOne',
+      1 => 'ptlis\\ConNegBundle\\Test\\MimeBestTest::testMimeBestTwo',
+      2 => 'ptlis\\ConNegBundle\\Test\\MimeBestTest::testMimeBestThree',
+      3 => 'ptlis\\ConNegBundle\\Test\\MimeBestTest::testMimeBestFour',
+    ),
+    169 => NULL,
+  ),
+  '/home/brian/Desktop/dev/ConNegBundle/src/DependencyInjection/Configuration.php' => 
+  array (
+    33 => 
+    array (
+      0 => 'ptlis\\ConNegBundle\\Test\\CharsetAllTest::testCharsetAllOne',
+    ),
+    34 => 
+    array (
+      0 => 'ptlis\\ConNegBundle\\Test\\CharsetAllTest::testCharsetAllOne',
+    ),
+    42 => 
+    array (
+      0 => 'ptlis\\ConNegBundle\\Test\\CharsetAllTest::testCharsetAllOne',
+    ),
+    43 => NULL,
+  ),
+  '/home/brian/Desktop/dev/ConNegBundle/src/DependencyInjection/ptlisConNegExtension.php' => 
+  array (
+    36 => 
+    array (
+      0 => 'ptlis\\ConNegBundle\\Test\\CharsetAllTest::testCharsetAllOne',
+    ),
+    38 => 
+    array (
+      0 => 'ptlis\\ConNegBundle\\Test\\CharsetAllTest::testCharsetAllOne',
+    ),
+    41 => 
+    array (
+      0 => 'ptlis\\ConNegBundle\\Test\\CharsetAllTest::testCharsetAllOne',
+    ),
+    42 => 
+    array (
+    ),
+    43 => 
+    array (
+    ),
+    44 => 
+    array (
+      0 => 'ptlis\\ConNegBundle\\Test\\CharsetAllTest::testCharsetAllOne',
+    ),
+    46 => 
+    array (
+      0 => 'ptlis\\ConNegBundle\\Test\\CharsetAllTest::testCharsetAllOne',
+    ),
+  ),
+  '/home/brian/Desktop/dev/ConNegBundle/src/Service/TypeFactory.php' => 
+  array (
+    45 => 
+    array (
+    ),
+    46 => 
+    array (
+    ),
+    47 => 
+    array (
+    ),
+    48 => 
+    array (
+    ),
+    59 => 
+    array (
+    ),
+    60 => 
+    array (
+    ),
+    62 => 
+    array (
+    ),
+    64 => 
+    array (
+    ),
+    65 => 
+    array (
+    ),
+    76 => 
+    array (
+    ),
+    77 => 
+    array (
+    ),
+    79 => 
+    array (
+    ),
+    81 => 
+    array (
+    ),
+    82 => 
+    array (
+    ),
+    93 => 
+    array (
+    ),
+    94 => 
+    array (
+    ),
+    96 => 
+    array (
+    ),
+    98 => 
+    array (
+    ),
+    99 => 
+    array (
+    ),
+    110 => 
+    array (
+    ),
+    111 => 
+    array (
+    ),
+    113 => 
+    array (
+    ),
+    115 => 
+    array (
+    ),
+    116 => 
+    array (
+    ),
+    127 => 
+    array (
+    ),
+    128 => 
+    array (
+    ),
+    130 => 
+    array (
+    ),
+    132 => 
+    array (
+    ),
+    133 => 
+    array (
+    ),
+    144 => 
+    array (
+    ),
+    145 => 
+    array (
+    ),
+    147 => 
+    array (
+    ),
+    149 => 
+    array (
+    ),
+    150 => 
+    array (
+    ),
+    161 => 
+    array (
+    ),
+    162 => 
+    array (
+    ),
+    164 => 
+    array (
+    ),
+    166 => 
+    array (
+    ),
+    167 => 
+    array (
+    ),
+    178 => 
+    array (
+    ),
+    179 => 
+    array (
+    ),
+    181 => 
+    array (
+    ),
+    183 => 
+    array (
+    ),
+    184 => 
+    array (
+    ),
+  ),
+));
+$coverage->setTests(array (
+  'ptlis\\ConNegBundle\\Test\\CharsetAllTest::testCharsetAllOne' => 0,
+  'ptlis\\ConNegBundle\\Test\\CharsetAllTest::testCharsetAllTwo' => 0,
+  'ptlis\\ConNegBundle\\Test\\CharsetAllTest::testCharsetAllThree' => 0,
+  'ptlis\\ConNegBundle\\Test\\CharsetAllTest::testCharsetAllFour' => 0,
+  'ptlis\\ConNegBundle\\Test\\CharsetBestTest::testCharsetBestOne' => 0,
+  'ptlis\\ConNegBundle\\Test\\CharsetBestTest::testCharsetBestTwo' => 0,
+  'ptlis\\ConNegBundle\\Test\\CharsetBestTest::testCharsetBestThree' => 0,
+  'ptlis\\ConNegBundle\\Test\\CharsetBestTest::testCharsetBestFour' => 0,
+  'ptlis\\ConNegBundle\\Test\\EncodingAllTest::testEncodingAllOne' => 0,
+  'ptlis\\ConNegBundle\\Test\\EncodingAllTest::testEncodingAllTwo' => 0,
+  'ptlis\\ConNegBundle\\Test\\EncodingAllTest::testEncodingAllThree' => 0,
+  'ptlis\\ConNegBundle\\Test\\EncodingAllTest::testEncodingAllFour' => 0,
+  'ptlis\\ConNegBundle\\Test\\EncodingBestTest::testEncodingBestOne' => 0,
+  'ptlis\\ConNegBundle\\Test\\EncodingBestTest::testEncodingBestTwo' => 0,
+  'ptlis\\ConNegBundle\\Test\\EncodingBestTest::testEncodingBestThree' => 0,
+  'ptlis\\ConNegBundle\\Test\\EncodingBestTest::testEncodingBestFour' => 0,
+  'ptlis\\ConNegBundle\\Test\\LanguageAllTest::testLanguageAllOne' => 0,
+  'ptlis\\ConNegBundle\\Test\\LanguageAllTest::testLanguageAllTwo' => 0,
+  'ptlis\\ConNegBundle\\Test\\LanguageAllTest::testLanguageAllThree' => 0,
+  'ptlis\\ConNegBundle\\Test\\LanguageAllTest::testLanguageAllFour' => 0,
+  'ptlis\\ConNegBundle\\Test\\LanguageBestTest::testLanguageBestOne' => 0,
+  'ptlis\\ConNegBundle\\Test\\LanguageBestTest::testLanguageBestTwo' => 0,
+  'ptlis\\ConNegBundle\\Test\\LanguageBestTest::testLanguageBestThree' => 0,
+  'ptlis\\ConNegBundle\\Test\\LanguageBestTest::testLanguageBestFour' => 0,
+  'ptlis\\ConNegBundle\\Test\\MimeAllTest::testMimeAllOne' => 0,
+  'ptlis\\ConNegBundle\\Test\\MimeAllTest::testMimeAllTwo' => 0,
+  'ptlis\\ConNegBundle\\Test\\MimeAllTest::testMimeAllThree' => 0,
+  'ptlis\\ConNegBundle\\Test\\MimeAllTest::testMimeAllFour' => 0,
+  'ptlis\\ConNegBundle\\Test\\MimeBestTest::testMimeBestOne' => 0,
+  'ptlis\\ConNegBundle\\Test\\MimeBestTest::testMimeBestTwo' => 0,
+  'ptlis\\ConNegBundle\\Test\\MimeBestTest::testMimeBestThree' => 0,
+  'ptlis\\ConNegBundle\\Test\\MimeBestTest::testMimeBestFour' => 0,
+  'UNCOVERED_FILES_FROM_WHITELIST' => NULL,
+));
+
+$filter = $coverage->filter();
+$filter->setBlacklistedFiles(array (
+));
+$filter->setWhitelistedFiles(array (
+  '/home/brian/Desktop/dev/ConNegBundle/src/DependencyInjection/Configuration.php' => true,
+  '/home/brian/Desktop/dev/ConNegBundle/src/DependencyInjection/ptlisConNegExtension.php' => true,
+  '/home/brian/Desktop/dev/ConNegBundle/src/Service/LegacyTypeFactory.php' => true,
+  '/home/brian/Desktop/dev/ConNegBundle/src/Service/TypeFactory.php' => true,
+  '/home/brian/Desktop/dev/ConNegBundle/src/ptlisConNegBundle.php' => true,
+));
+
+return $coverage;

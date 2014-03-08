@@ -34,7 +34,10 @@ class FormErrorSerializer
         if (count($form->all())) {
             foreach ($form->all() as $child) {
                 if (!$child->isValid()) {
-                    $errorList[$child->getName()] = $this->toArray($child);
+                    $innerErrorList = $this->toArray($child);
+                    if (count($innerErrorList)) {
+                        $errorList[$child->getName()] = $innerErrorList;
+                    }
                 }
             }
         } else {
